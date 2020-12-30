@@ -1,15 +1,12 @@
 FROM ubuntu:18.04
 
 
-RUN apt-get update && apt-get install -yq \
-                        git wget \
-                        automake \
-                        unzip 
+RUN apt-get update && apt-get install -yq git wget make g++ unzip 
                       
 
 # Install Starspace
 
-RUN wget https://dl.bintray.com/boostorg/release/1.63.0/source/boost_1_63_0.zip && \
+RUN wget https://dl.bintray.com/boostorg/release/1.63.0/source/boost_1_63_0.zip && \ 
     unzip boost_1_63_0.zip && \
     mv boost_1_63_0 /usr/local/bin && \
     git clone https://github.com/facebookresearch/Starspace.git && \
