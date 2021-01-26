@@ -5,7 +5,7 @@ docker-compose build \
 --build-arg GROUP_ID=$(id -g) 
 ```
 
-To run a container from image:
+To run containers from the image:
 ```
 docker-compose up
 ```
