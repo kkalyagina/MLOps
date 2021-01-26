@@ -1,0 +1,27 @@
+import mlflow
+from random import random, randint
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+iris = load_iris()
+X, y = iris.data, iris.target
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+# train a model
+model = LogisticRegression(max_iter=5000)
+model.fit(X_train, y_train)
+
+
+if __name__ == "__main__":
+    # Log a parameter (key-value pair)
+    mlflow.set_tracking_uri("http://mlflow-server:7777") 
+  # mlflow.set_experiment("/my-experiment")
+    
+    mlflow.log_param("param1", randint(0, 100))
+
+    # Log a metric; metrics can be updated throughout the run
+    mlflow.log_metric("foo", random())
+    mlflow.log_metric("foo", random() + 1)
+    mlflow.log_metric("foo", random() + 2)
+    mlflow.sklearn.log_model(model, 'model')
