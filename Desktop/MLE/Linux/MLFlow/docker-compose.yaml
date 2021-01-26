@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  mlflow-server:
+    build: 
+      context: .
+      dockerfile: container_1_server/Dockerfile
+    expose:
+      - "7777"
+    ports:
+      - "7777:7777"
+  
+  
+    
+  script:
+    build: 
+      context: .
+      dockerfile: container_2_scripts/Dockerfile
+    depends_on:
+      - "mlflow-server"
+    ports:
+      - "7777:7777"
+ 
+
+
+
+
+
