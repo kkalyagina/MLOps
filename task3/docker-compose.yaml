@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  mlflow-server:
+    build: 
+      context: .
+      dockerfile: container_1_server/Dockerfile
+    expose:
+      - "7777"
+    ports:
+      - "7777:7777"
+    volumes:
+      - ./Volume:/home/mlflow_task3
+  
+  
+    
+  script:
+    build: 
+      context: .
+      dockerfile: container_2_scripts/Dockerfile
+    depends_on:
+      - "mlflow-server"
+    volumes: 
+      - ./Volume:/Volume
+    command: bash -c "cd Volume && export GIT_PYTHON_REFRESH=quiet && python script.py"
+    restart: on-failure
+ 
+
+
+
+
+
