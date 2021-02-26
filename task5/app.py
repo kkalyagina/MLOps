@@ -10,7 +10,7 @@ from json import JSONEncoder
 app = Flask(__name__)
 api = Api(app)
 
-model = joblib.load('Volume/iris-model.model')
+model = joblib.load('iris-model.model')
 
 class MakePrediction(Resource):
     @staticmethod
