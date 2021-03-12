@@ -21,8 +21,6 @@ setup(name='my_package',
           'yfinance',
           'matplotlib'
       ],
-      test_suite='nose.collector',
-      tests_require=['nose', 'nose-cover3'],
       entry_points={
           'console_scripts': ['my_package-get_df=my_package.command_line:main'],
       },
