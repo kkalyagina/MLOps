@@ -32,3 +32,7 @@ python setup.py test
 python3 -m pip install --user --upgrade twine
 python3 -m twine upload --repository testpypi dist/*
 ```
+# Install package in new env
+```
+python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps kk_lab
+```
