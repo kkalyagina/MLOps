@@ -1,0 +1,3 @@
+import kk_lab
+kk_lab.get_df("AAPL", "7d")
+kk_lab.plot_7d(kk_lab.get_df("AAPL", "7d"), './apple.png')

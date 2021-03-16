@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: kk-lab
+Version: 0.1
+Summary: Investment instruments
+Home-page: http://github.com/kkalyagina/kk_lab
+Author: kkalyagina
+Author-email: kalyagina.kristina@gmail.com
+License: MIT
+Description: kk_lab
+        --------
+        
+        To use (with caution), simply do::
+        
+            # Import my_package library
+            >>> import kk_lab
+            # To download data of security from yahoo
+            >>> data=kk_lab.get_df("AAPL", "7d")
+            # To get a plot of security and save it
+            >>> kk_lab.plot_7d(data, './apple.png')
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7

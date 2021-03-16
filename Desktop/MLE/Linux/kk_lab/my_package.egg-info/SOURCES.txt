@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.py
+bin/my_package-get_df
+my_package/__init__.py
+my_package/command_line.py
+my_package/script.py
+my_package.egg-info/PKG-INFO
+my_package.egg-info/SOURCES.txt
+my_package.egg-info/dependency_links.txt
+my_package.egg-info/entry_points.txt
+my_package.egg-info/not-zip-safe
+my_package.egg-info/requires.txt
+my_package.egg-info/top_level.txt
