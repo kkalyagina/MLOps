@@ -1,3 +1,0 @@
-[console_scripts]
-kk_lab-get_df = kk_lab.command_line:main
-
