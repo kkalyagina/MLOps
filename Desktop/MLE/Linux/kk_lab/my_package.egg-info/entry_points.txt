@@ -1,3 +1,0 @@
-[console_scripts]
-my_package-get_df = my_package.command_line:main
-
