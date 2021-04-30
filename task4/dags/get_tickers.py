@@ -25,7 +25,7 @@ def download_market_data(ticker, **context):
     print("CONTEXT", context)
     print(context['ds'])
     df = yf.download(ticker, start=pd.to_datetime(context['ds']), end=pd.to_datetime(context['ds'])+pd.DateOffset(1), interval = '1h')
-    df.to_csv(f'TSLA_data.csv', header = False)
+    df.to_csv(f'{ticker}_data.csv', header = False)
     
 def query_data(**kwargs):
     """
@@ -44,7 +44,7 @@ def query_data(**kwargs):
     for ticker in tickers:
 
         # Load data, add ticker column, append to combined_df
-        df = pd.read_csv(f'~/data/{ds}/TSLA_data.csv', header = None)
+        df = pd.read_csv(f'~/data/{ds}/{ticker}_data.csv', header = None)
         df[len(df.columns)] = f'{ticker}'
         combined_df = combined_df.append(df, ignore_index = True)
  
@@ -114,7 +114,7 @@ def plot(**kwargs):
     
     #Build plot
     fig=plt.figure(figsize=(20,15))
-    ax1=fig.add_subplot(ylabel='TSLA')
+    ax1=fig.add_subplot(ylabel=ticker)
     graph['Avg'].plot(ax=ax1, color='black')
     graph[['Avg', 'sma_5', 'sma_20']].plot(ax=ax1)
     plt.savefig(f'/usr/local/airflow/data/{ds}/plot_data.png')
@@ -171,7 +171,7 @@ t3 = PythonOperator(
     dag = dag
 )
 
-#Calculate SMA 5 and SMA 20 and save results 
+# #Calculate SMA 5 and SMA 20 and save results 
 t4 = PythonOperator(
     task_id = 'calculate_sma',
     python_callable = sma,
@@ -180,7 +180,6 @@ t4 = PythonOperator(
     dag = dag
 )
 
-#Plot
 t5 = PythonOperator(
     task_id = 'build_plot',
     python_callable = plot,
