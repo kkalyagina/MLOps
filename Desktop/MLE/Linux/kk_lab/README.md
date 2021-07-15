@@ -1,3 +1,5 @@
+# Pipeline
+
 # Install the package locally
 ```
 pip install .
